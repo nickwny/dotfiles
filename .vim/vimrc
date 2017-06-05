@@ -1,0 +1,88 @@
+set nocompatible
+cd ~
+let s:cfgdir='~/.vim'
+
+" Plugins using vim-plug
+call plug#begin(s:cfgdir.'/plugged')
+Plug 'lervag/vimtex'
+Plug 'vim-airline/vim-airline'
+Plug 'rakr/vim-one'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/a.vim'
+call plug#end()
+
+set background=dark
+colorscheme one
+set showcmd
+set wildmenu
+set textwidth=80
+set noexpandtab
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set backspace=indent,eol,start
+set laststatus=2
+set number
+set hlsearch
+set incsearch
+
+syntax on
+filetype plugin indent on
+set fileencoding=utf-8
+set fileencodings=utf-8,chinese
+set encoding=utf-8
+
+set backup
+set backupdir=~/.vim/bak
+let g:netrw_dirhistmax=0
+
+if has('gui')
+	set lines=35
+	set columns=100
+	"set guifont=DejaVu_Sans_Mono_for_Powerline:h11
+	set guifont=Fira_Mono_for_Powerline:h11
+	set guifontwide=
+	set langmenu=zh_CN.UTF-8
+	language message zh_CN.UTF-8
+	set guioptions=egt "m
+	set mousehide " Hide the mouse when typing text
+	set guicursor=a:block-blinkon0
+	source $VIMRUNTIME/delmenu.vim
+	source $VIMRUNTIME/menu.vim
+endif
+
+if has('vms')
+	set nobackup
+endif
+
+if has('win32')
+	set backupdir=~/vimfiles/bak
+endif
+
+"vimtex settings
+let g:tex_flavor='latex'
+let g:vimtex_compiler_latexmk={
+\ 'options' : [
+\   '-xelatex',
+\   '-verbose',
+\   '-file-line-error',
+\   '-synctex=1',
+\   '-interaction=nonstopmode',
+\ ],
+\}
+let g:vimtex_view_general_viewer='sumatrapdf'
+let g:vimtex_view_genreal_options_latexmk='-reuse-instance'
+
+"airline settings
+let g:airline_theme='one'
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+	let g:airline_symbols={}
+endif
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_symbols.branch=''
+let g:airline_symbols.readonly=''
+let g:airline_symbols.linenr=''

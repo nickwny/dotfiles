@@ -11,8 +11,9 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/a.vim'
 call plug#end()
 
-set background=dark
 colorscheme one
+set background=dark
+
 set showcmd
 set wildmenu
 set textwidth=80
@@ -40,7 +41,7 @@ if has('gui')
 	set lines=35
 	set columns=100
 	"set guifont=DejaVu_Sans_Mono_for_Powerline:h11
-	set guifont=Fira_Mono_for_Powerline:h11
+	set guifont=Fira\ Mono\ Medium\ 11
 	set guifontwide=
 	set langmenu=zh_CN.UTF-8
 	language message zh_CN.UTF-8
@@ -57,6 +58,7 @@ endif
 
 if has('win32')
 	set backupdir=~/vimfiles/bak
+	set guifont=Fira_Mono_for_Powerline:h11
 endif
 
 "vimtex settings
